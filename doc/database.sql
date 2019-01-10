@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 10, 2019 at 09:18 AM
+-- Generation Time: Jan 10, 2019 at 10:13 AM
 -- Server version: 5.6.41
 -- PHP Version: 7.2.7
 
@@ -16,8 +16,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `mariliis_blog`
 --
-CREATE DATABASE IF NOT EXISTS `mariliis_blog` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `mariliis_blog`;
 
 -- --------------------------------------------------------
 
@@ -39,7 +37,7 @@ CREATE TABLE `post` (
 --
 
 INSERT INTO `post` (`post_id`, `post_subject`, `post_text`, `post_created`, `user_id`) VALUES
-(7, 'esimene postitus', '52 - Cannot add or update a child row: a foreign key constraint fails (`mariliis_blog`.`post`, CONSTRAINT `post_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`))', '2019-01-10 07:00:24', 1);
+(9, 'esimene postitus', 'Sed mauris risus, ultrices sit amet blandit sed, varius et enim. Morbi egestas maximus sem eget ullamcorper. Donec at ex velit. Donec et gravida lacus, non lobortis sem. Duis eu tellus ultrices, varius mi vitae, condimentum sem. Cras blandit imperdiet vulputate. Phasellus a sagittis metus. Donec interdum arcu purus.', '2019-01-10 08:10:00', 1);
 
 -- --------------------------------------------------------
 
@@ -144,7 +142,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `post_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `post_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `translations`
