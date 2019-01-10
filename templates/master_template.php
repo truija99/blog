@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <base href="<?= BASE_URL ?>">
+    <base href="<?echo BASE_URL ?>">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="assets/ico/favicon.png">
 
-    <title><?= PROJECT_NAME ?></title>
-
     <!-- Bootstrap core CSS -->
-    <link href="vendor/components/bootstrap/css/bootstrap.min.css?<?=COMMIT_HASH?>" rel="stylesheet">
+    <link href="vendor/components/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- jQuery UI core CSS -->
-    <link href="vendor/components/jqueryui/themes/base/jquery-ui.min.css?<?=COMMIT_HASH?>" rel="stylesheet">
+    <link href="vendor/components/jqueryui/themes/base/jquery-ui.min.css" rel="stylesheet">
 
     <!-- Site core CSS -->
-    <link href="assets/css/main.css?<?=COMMIT_HASH?>" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
 
     <style>
         body {
@@ -27,12 +25,12 @@
 
 
     <!-- jQuery -->
-    <script src="vendor/components/jquery/jquery.min.js?<?=COMMIT_HASH?>"></script>
+    <script src="vendor/components/jquery/jquery.min.js"></script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js?<?=COMMIT_HASH?>"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js?<?=COMMIT_HASH?>"></script>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js?<?echo COMMIT_HASH?>"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js?<?echo COMMIT_HASH?>"></script>
     <![endif]-->
 
 
@@ -49,12 +47,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#"><?= PROJECT_NAME ?></a>
+            <a class="navbar-brand" href="#"><?echo PROJECT_NAME ?></a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li <?= $controller == 'posts' ? 'class="active"' : '' ?>><a href="#">Home</a></li>
-                <li <?= $controller == 'halo' ? 'class="active"' : '' ?>><a href="halo">Halo admin</a></li>
+                <li <?echo $controller == 'posts' ? 'class="active"' : '' ?>><a href="<?echo BASE_URL?>">Posts</a></li>
+                <li <?echo $controller == 'tags' ? 'class="active"' : '' ?>><a href="<?echo BASE_URL?>tags">Tags</a></li>
+                <li <?echo $controller == 'users' ? 'class="active"' : '' ?>><a href="<?echo BASE_URL?>users">Users</a></li>
+                <li <?echo $controller == 'halo' ? 'class="active"' : '' ?>><a href="halo">Halo admin</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sample dropdown <b class="caret"></b></a>
                     <ul class="dropdown-menu">
@@ -70,12 +70,12 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?= $_SESSION['language'] ?> <b
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?echo $_SESSION['language'] ?> <b
                                 class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <?php foreach ($supported_languages as $language): ?>
-                            <li><a href="<?= $controller ?>?language=<?= $language ?>"
-                                   class="<?= $language == $_SESSION['language'] ? 'active' : '' ?>"><?= $language ?></a>
+                            <li><a href="<?echo $controller ?>?language=<?echo $language ?>"
+                                   class="<?echo $language == $_SESSION['language'] ? 'active' : '' ?>"><?echo $language ?></a>
                             </li>
                         <?php endforeach ?>
                     </ul>
@@ -92,7 +92,7 @@
     <!-- Main component for a primary marketing message or call to action -->
     <?php if (!file_exists("views/$controller/{$controller}_$action.php")) error_out('The view <i>views/' . $controller . '/' . $controller . '_' . $action . '.php</i> does not exist. Create that file.'); ?>
     <?php @require "views/$controller/{$controller}_$action.php"; ?>
-    
+
 </div>
 <!-- /container -->
 
