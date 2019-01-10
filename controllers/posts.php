@@ -11,8 +11,8 @@ class posts extends Controller
      */
     function index()
     {
-        $this->users = get_all("SELECT * FROM users");
-        $this->posts = get_all("SELECT * FORM posts");
+       // $this->users = get_all("SELECT * FROM users");
+        $this->posts = get_all("SELECT * FROM post");
     }
 
     /**
