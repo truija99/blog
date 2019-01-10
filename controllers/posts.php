@@ -9,11 +9,22 @@ class posts extends Controller
      * be omitted (URL can be /). After calling the action, a view from views/controller-name/controller-name_action-name.php
      * is loaded (it must exist, unless the function ends with stop() call.
      */
+
+    // View function for blog posts
+    function view() {
+        $post_id = $this->params[0];
+        $this->post = get_first("SELECT * FROM post NATURAL JOIN users WHERE post_id ='$post_id'");
+    }
+
+
     function index()
     {
        // $this->users = get_all("SELECT * FROM users");
         $this->posts = get_all("SELECT * FROM post");
     }
+
+
+
 
     /**
      * This function will only be ran in case of an AJAX request. No view will be attempted to load after this function.
@@ -42,4 +53,5 @@ class posts extends Controller
 
 
     }
+
 }
