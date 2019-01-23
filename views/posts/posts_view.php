@@ -1,5 +1,4 @@
-<? foreach ($tags[$post ['post_id']] as $tag):?><a href="#"><span class="label" style="background-color: saddlebrown"><?=$tag?></span></a>
-<? endforeach?>
+<? foreach ($tags as $tag):?><a href="#"><span class="label label-info"><?=$tag['tag_name']?></span> </a> <?endforeach?>
 
 
 
@@ -17,4 +16,4 @@
             <p><? echo $post['post_text'];?></p>
         </div>
     </div>
-</div> 
+</div>
