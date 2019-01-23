@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <base href="<?echo BASE_URL ?>">
+    <base href="<?php echo BASE_URL; ?>">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -29,8 +29,8 @@
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js?<?echo COMMIT_HASH?>"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js?<?echo COMMIT_HASH?>"></script>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js?<?php echo COMMIT_HASH;?>"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js?<?php echo COMMIT_HASH;?>"></script>
     <![endif]-->
 
 
@@ -39,49 +39,39 @@
 <body>
 
 <!-- Fixed navbar -->
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-dark bg-dark mb-3 navbar-expand-lg navbar-fixed-top">
     <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#"><?echo PROJECT_NAME ?></a>
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li <?echo $controller == 'posts' ? 'class="active"' : '' ?>><a href="<?echo BASE_URL?>">Posts</a></li>
-                <li <?echo $controller == 'tags' ? 'class="active"' : '' ?>><a href="<?echo BASE_URL?>tags">Tags</a></li>
-                <li <?echo $controller == 'users' ? 'class="active"' : '' ?>><a href="<?echo BASE_URL?>users">Users</a></li>
-                <li <?echo $controller == 'halo' ? 'class="active"' : '' ?>><a href="halo">Halo admin</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sample dropdown <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#"><? __('Action') ?></a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li class="divider"></li>
-                        <li class="dropdown-header">Nav header</li>
-                        <li><a href="#">Separated link</a></li>
-                        <li><a href="#">One more separated link</a></li>
-                    </ul>
+        <a class="navbar-brand" href="#"><?php echo PROJECT_NAME; ?></a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item<?php echo $controller == 'posts' ? ' active"' : '"' ?>>
+                    <a class="nav-link" href="<?php echo BASE_URL;?>posts">Posts</a>
+                </li>
+                <li class="nav-item<?php echo $controller == 'tags' ? ' active"' : '"' ?>>
+                    <a class="nav-link" href="<?php echo BASE_URL;?>tags">Tags</a>
+                </li>
+                <li class="nav-item<?php echo $controller == 'users' ? ' active"' : '"' ?>>
+                    <a class="nav-link" href="<?php echo BASE_URL;?>users">Users</a>
                 </li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?echo $_SESSION['language'] ?> <b
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><?php echo $_SESSION['language']; ?> <b
                                 class="caret"></b></a>
-                    <ul class="dropdown-menu">
+                    <div class="dropdown-menu">
                         <?php foreach ($supported_languages as $language): ?>
-                            <li><a href="<?echo $controller ?>?language=<?echo $language ?>"
-                                   class="<?echo $language == $_SESSION['language'] ? 'active' : '' ?>"><?echo $language ?></a>
-                            </li>
+                            <a class="dropdown-item" href="<?php echo $controller; ?>?language=<?php echo $language; ?>"
+                               class="<?php echo $language == $_SESSION['language'] ? 'active' : '' ?>"><?php echo $language; ?></a>
+
                         <?php endforeach ?>
-                    </ul>
+                    </div>
                 </li>
                 <li><a href="settings"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a></li>
-                <li title="<?=__('Log out')?> <?= $auth->name ?>"><a href="logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></a></li>
+                <li title="<?php echo __('Log out')?> <?php echo $auth->name; ?>"><a href="logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></a></li>
+            </ul>
         </div>
         <!--/.nav-collapse -->
     </div>
@@ -102,9 +92,9 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="vendor/components/bootstrap/js/bootstrap.min.js?<?=COMMIT_HASH?>"></script>
-<script src="vendor/components/jqueryui/jquery-ui.min.js?<?=COMMIT_HASH?>"></script>
-<script src="assets/js/main.js?<?=COMMIT_HASH?>"></script>
+<script src="vendor/components/bootstrap/js/bootstrap.min.js?<?php echo COMMIT_HASH;?>"></script>
+<script src="vendor/components/jqueryui/jquery-ui.min.js?<?php echo COMMIT_HASH;?>"></script>
+<script src="assets/js/main.js?<?php echo COMMIT_HASH;?>"></script>
 </body>
 </html>
 <?php require 'system/error_translations.php' ?>

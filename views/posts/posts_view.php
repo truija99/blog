@@ -1,3 +1,8 @@
+<? foreach ($tags[$post ['post_id']] as $tag):?><a href="#"><span class="label" style="background-color: saddlebrown"><?=$tag?></span></a>
+<? endforeach?>
+
+
+
 <div class="container">
     <div class="row">
         <div class="col-lg-8">
